@@ -1,20 +1,20 @@
 [gd_scene format=3 uid="uid://dxchkql7kqrid"]
 
-[ext_resource type="PackedScene" uid="uid://clpfsusflrl37" path="res://room1.tscn" id="1_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://bxwyxpubw8kdd" path="res://UI.tscn" id="2_h2yge"]
-[ext_resource type="Script" uid="uid://lkj0gx1f2ebi" path="res://camera_3d.gd" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://clpfsusflrl37" path="res://scenes/room1.tscn" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://bxwyxpubw8kdd" path="res://scenes/UI.tscn" id="2_jyhfs"]
+[ext_resource type="Script" uid="uid://lkj0gx1f2ebi" path="res://scripts/camera_3d.gd" id="3_tbgi4"]
 
 [node name="Main" type="Node3D" unique_id=1461094929]
 
-[node name="Room" parent="." unique_id=1849136030 instance=ExtResource("1_0xm2m")]
+[node name="Room" parent="." unique_id=1849136030 instance=ExtResource("1_sugp2")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=254813608]
 
-[node name="Control" parent="CanvasLayer" unique_id=931437319 instance=ExtResource("2_h2yge")]
+[node name="Control" parent="CanvasLayer" unique_id=931437319 instance=ExtResource("2_jyhfs")]
 
 [node name="FreeCamera" type="CharacterBody3D" parent="." unique_id=528166946]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.883449, 3.8755722, 0)
-script = ExtResource("3_h2yge")
+script = ExtResource("3_tbgi4")
 metadata/_edit_group_ = true
 
 [node name="Camera3D" type="Camera3D" parent="FreeCamera" unique_id=1759224352]
