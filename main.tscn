@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dxchkql7kqrid"]
+
+[ext_resource type="PackedScene" uid="uid://clpfsusflrl37" path="res://room1.tscn" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://bxwyxpubw8kdd" path="res://UI.tscn" id="2_h2yge"]
+[ext_resource type="Script" uid="uid://lkj0gx1f2ebi" path="res://camera_3d.gd" id="3_h2yge"]
+
+[node name="Main" type="Node3D" unique_id=1461094929]
+
+[node name="Room" parent="." unique_id=1849136030 instance=ExtResource("1_0xm2m")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=254813608]
+
+[node name="Control" parent="CanvasLayer" unique_id=931437319 instance=ExtResource("2_h2yge")]
+
+[node name="FreeCamera" type="CharacterBody3D" parent="." unique_id=528166946]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.883449, 3.8755722, 0)
+script = ExtResource("3_h2yge")
+metadata/_edit_group_ = true
+
+[node name="Camera3D" type="Camera3D" parent="FreeCamera" unique_id=1759224352]
+transform = Transform3D(-0.24564575, 0, 0.9693597, 0, 1, 0, -0.9693597, 0, -0.24564575, 0, 0, 0)
+
+[node name="Lights" type="Node" parent="." unique_id=108999844]
+
+[node name="Lights1" type="DirectionalLight3D" parent="Lights" unique_id=1527739209]
+transform = Transform3D(1, 0, 0, 0, -0.56568676, 0.8246202, 0, -0.8246202, -0.56568676, -0.844, 10, -12.059)
+
+[node name="Lights2" type="DirectionalLight3D" parent="Lights" unique_id=592177637]
+transform = Transform3D(-0.4428598, 0.029379815, -0.8961094, -0.89556825, 0.033225283, 0.44368178, 0.042808797, 0.9990159, 0.011597469, -15.222, 10, 0.293)
+
+[node name="Lights3" type="DirectionalLight3D" parent="Lights" unique_id=448733899]
+transform = Transform3D(-0.5499413, 0.029379815, 0.83468634, 0.8351225, 0.03322529, 0.5490593, -0.011601404, 0.9990159, -0.04280772, 11.17, 10, -0.456)
