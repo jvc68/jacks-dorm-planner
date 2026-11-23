@@ -1,0 +1,131 @@
+[gd_scene format=3 uid="uid://8cdygloi8yvw"]
+
+[ext_resource type="Theme" uid="uid://bb8671whacxvp" path="res://assets/baseTheme.tres" id="1_1dboj"]
+[ext_resource type="StyleBox" uid="uid://527fbljud6tt" path="res://assets/buttonTheme/circularButton.tres" id="2_5ojwx"]
+[ext_resource type="Script" uid="uid://d1mof1ic4fka0" path="res://scripts/zoom_controls.gd" id="3_fp64j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4rt1j"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kefn4"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.78431374, 0.78431374, 0.78431374, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ojwx"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(18.892157, 18.892157, 18.892157, 1)
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fp64j"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c2oyv"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.78431374, 0.78431374, 0.78431374, 1)
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_detail = 5
+
+[node name="CameraControlUi" type="Control" unique_id=64653746]
+layout_mode = 3
+anchor_left = 0.98388886
+anchor_top = 0.93416667
+anchor_right = 0.98388886
+anchor_bottom = 0.93416667
+offset_left = -15.0
+offset_right = -15.0
+grow_horizontal = 0
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="center" type="Button" parent="." unique_id=1388912588]
+layout_mode = 0
+offset_left = -62.0
+offset_top = 23.0
+offset_right = 30.0
+offset_bottom = 67.0
+focus_mode = 0
+theme = ExtResource("1_1dboj")
+theme_override_styles/normal = ExtResource("2_5ojwx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4rt1j")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kefn4")
+text = "Center"
+
+[node name="zoomControls" type="Control" parent="." unique_id=1154886603]
+anchors_preset = 0
+offset_left = -47.0
+offset_top = -166.0
+offset_right = -7.0
+offset_bottom = -126.0
+script = ExtResource("3_fp64j")
+
+[node name="zoomIn" type="Button" parent="zoomControls" unique_id=818016339]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.011111111
+anchor_bottom = 0.031666666
+offset_right = 59.555557
+offset_bottom = 90.00033
+focus_mode = 0
+theme = ExtResource("1_1dboj")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5ojwx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fp64j")
+theme_override_styles/hover = SubResource("StyleBoxFlat_c2oyv")
+text = "+"
+
+[node name="zoomOut" type="Button" parent="zoomControls" unique_id=1011644770]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.011111111
+anchor_bottom = 0.031666666
+offset_left = 60.0
+offset_top = 181.0
+offset_right = 119.55556
+offset_bottom = 271.00034
+rotation = 3.1415927
+focus_mode = 0
+theme = ExtResource("1_1dboj")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5ojwx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fp64j")
+theme_override_styles/hover = SubResource("StyleBoxFlat_c2oyv")
+text = "-"
+
+[connection signal="pressed" from="zoomControls/zoomIn" to="zoomControls" method="_on_zoom_in_pressed"]
+[connection signal="pressed" from="zoomControls/zoomOut" to="zoomControls" method="_on_zoom_out_pressed"]
