@@ -16,12 +16,13 @@ func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	camNotsif.visible = true;
 	GlobalSignals.cameraZoom.connect(zoomingCamera)
+	GlobalSignals.moveCam.connect(setGlobalPos)
 
 
 func _input(event):
 	# Handle mouse movement
 	if event is InputEventMouseMotion:
-		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED || rotateCam:
 			rotation_y -= event.relative.x * mouse_sensitivity
 			rotation_x -= event.relative.y * mouse_sensitivity
 
@@ -47,14 +48,23 @@ func _input(event):
 func _physics_process(delta):
 	var direction = Vector3.ZERO
 
+	if Input.is_action_pressed("rightClick"):
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		camNotsif.visible = true;
+		rotateCam = true
+	elif Input.is_action_just_released("rightClick"):
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		camNotsif.visible = false;
+		rotateCam = false
+
 	if Input.is_action_pressed("ui_up"):
-		direction.x -= 1
-	if Input.is_action_pressed("ui_down"):
-		direction.x += 1
-	if Input.is_action_pressed("ui_left"):
-		direction.z += 1
-	if Input.is_action_pressed("ui_right"):
 		direction.z -= 1
+	if Input.is_action_pressed("ui_down"):
+		direction.z += 1
+	if Input.is_action_pressed("ui_left"):
+		direction.x -= 1
+	if Input.is_action_pressed("ui_right"):
+		direction.x += 1
 
 	if Input.is_action_pressed("camUp"):
 		direction.y += 1
@@ -73,7 +83,7 @@ func _physics_process(delta):
 		multi = 1.0
 
 	direction = direction.normalized()
-	direction = transform.basis * direction
+	direction = camera.global_transform.basis * direction
 
 	global_position += direction * move_speed * delta * multi
 	global_position.y = max(global_position.y, 0.5)
@@ -88,3 +98,6 @@ func zoomingCamera(modifier):
 		"-":
 			if camera.fov <= 95:
 				camera.fov += 10
+
+func setGlobalPos(pos):
+	global_position = pos

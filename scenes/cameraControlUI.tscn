@@ -127,5 +127,6 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_fp64j")
 theme_override_styles/hover = SubResource("StyleBoxFlat_c2oyv")
 text = "-"
 
+[connection signal="pressed" from="center" to="zoomControls" method="_on_center_pressed"]
 [connection signal="pressed" from="zoomControls/zoomIn" to="zoomControls" method="_on_zoom_in_pressed"]
 [connection signal="pressed" from="zoomControls/zoomOut" to="zoomControls" method="_on_zoom_out_pressed"]
