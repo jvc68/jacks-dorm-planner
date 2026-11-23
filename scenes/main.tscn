@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dxchkql7kqrid"]
 
 [ext_resource type="PackedScene" uid="uid://clpfsusflrl37" path="res://scenes/room1.tscn" id="1_sugp2"]
-[ext_resource type="PackedScene" uid="uid://bxwyxpubw8kdd" path="res://scenes/UI.tscn" id="2_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://bxwyxpubw8kdd" path="res://scenes/mainUI.tscn" id="2_jyhfs"]
 [ext_resource type="Script" uid="uid://lkj0gx1f2ebi" path="res://scripts/camera_3d.gd" id="3_tbgi4"]
 
 [node name="Main" type="Node3D" unique_id=1461094929]
