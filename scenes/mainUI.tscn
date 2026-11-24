@@ -1,71 +1,12 @@
 [gd_scene format=3 uid="uid://bxwyxpubw8kdd"]
 
-[ext_resource type="Script" uid="uid://dbvo5aysfeluq" path="res://scripts/leftBar.gd" id="1_b3bc3"]
 [ext_resource type="Theme" uid="uid://bb8671whacxvp" path="res://assets/baseTheme.tres" id="2_75u2n"]
-[ext_resource type="PackedScene" uid="uid://8cdygloi8yvw" path="res://scenes/cameraControlUI.tscn" id="3_8lirb"]
+[ext_resource type="PackedScene" uid="uid://8cdygloi8yvw" path="res://scenes/babyScenes/cameraControlUI.tscn" id="3_8lirb"]
 [ext_resource type="Script" uid="uid://b6f5flml7rlp6" path="res://scripts/view_toggle.gd" id="3_jviy6"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dj8aq"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(11.708, 11.708, 11.708, 1)
-corner_radius_top_right = 20
-corner_detail = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5en4g"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-corner_radius_top_right = 20
-corner_detail = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ua6yw"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.78431374, 0.78431374, 0.78431374, 1)
-corner_radius_top_right = 20
-corner_detail = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jviy6"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(18.892157, 18.892157, 18.892157, 1)
-border_width_top = 6
-border_width_bottom = 6
-border_color = Color(0, 0, 0, 1)
-corner_detail = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sykos"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-border_width_top = 6
-border_width_bottom = 6
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ag7bs"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.78431374, 0.78431374, 0.78431374, 1)
-border_width_top = 6
-border_width_bottom = 6
-border_color = Color(0, 0, 0, 1)
-corner_detail = 5
+[ext_resource type="Script" uid="uid://bcj0i4ofoxucp" path="res://scenes/furnish.gd" id="3_pfenr"]
+[ext_resource type="Texture2D" uid="uid://bknnx4pg0xpve" path="res://assets/img/house.png" id="3_sykos"]
+[ext_resource type="Texture2D" uid="uid://g1spmuaqirln" path="res://assets/img/ruler.png" id="4_ag7bs"]
+[ext_resource type="PackedScene" uid="uid://d1p0bltdafkw4" path="res://scenes/furniture_panels.tscn" id="7_pfenr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pfenr"]
 content_margin_left = 4.0
@@ -74,6 +15,7 @@ content_margin_right = 4.0
 content_margin_bottom = 4.0
 bg_color = Color(18.892157, 18.892157, 18.892157, 1)
 border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
 corner_detail = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ffdxr"]
@@ -82,10 +24,7 @@ content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
 border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
+corner_radius_top_left = 20
 corner_detail = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gpre3"]
@@ -95,6 +34,7 @@ content_margin_right = 4.0
 content_margin_bottom = 4.0
 bg_color = Color(0.78431374, 0.78431374, 0.78431374, 1)
 border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
 corner_detail = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8lirb"]
@@ -130,59 +70,73 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_horizontal_guides_ = [25.0, 1175.0]
+metadata/_edit_vertical_guides_ = [25.0, 1775.0]
 
 [node name="leftBar" type="Control" parent="." unique_id=1714272301]
 top_level = true
 z_index = -1
 layout_mode = 1
-anchor_top = 0.27
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 320.0
+offset_right = -1681.0
+offset_bottom = -28.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-script = ExtResource("1_b3bc3")
-metadata/_edit_group_ = true
-metadata/_edit_use_anchors_ = true
 
-[node name="furnish" type="Button" parent="leftBar" unique_id=985358534]
+[node name="furnish" type="Button" parent="leftBar" unique_id=985358534 node_paths=PackedStringArray("furnishPanels")]
 layout_mode = 1
 anchors_preset = -1
+anchor_top = -0.005
+anchor_bottom = -0.005
 offset_left = -2.0
-offset_right = 209.0
-offset_bottom = 151.0
+offset_right = 115.0
+offset_bottom = 157.0
 focus_mode = 0
 theme = ExtResource("2_75u2n")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_dj8aq")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_5en4g")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ua6yw")
-text = "Furnish"
+text = "Furniture"
+icon = ExtResource("3_sykos")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+script = ExtResource("3_pfenr")
+furnishPanels = NodePath("../../FurniturePanels")
 metadata/_edit_use_anchors_ = true
 
 [node name="measure" type="Button" parent="leftBar" unique_id=1833586362]
 layout_mode = 1
 anchors_preset = -1
+anchor_top = -0.0016666667
+anchor_bottom = -0.0016666667
 offset_left = -2.0
 offset_top = 151.0
-offset_right = 209.0
-offset_bottom = 302.0
+offset_right = 124.0
+offset_bottom = 308.0
 focus_mode = 0
 theme = ExtResource("2_75u2n")
 text = "Measure"
+icon = ExtResource("4_ag7bs")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
 metadata/_edit_use_anchors_ = true
 
 [node name="DToggle" type="Button" parent="leftBar" unique_id=975784492]
 layout_mode = 1
 anchors_preset = -1
+anchor_top = -0.004166667
+anchor_bottom = -0.004166667
 offset_left = -2.0
 offset_top = 302.0
-offset_right = 209.0
-offset_bottom = 453.0
+offset_right = 124.0
+offset_bottom = 459.0
 focus_mode = 0
 theme = ExtResource("2_75u2n")
-theme_override_styles/normal = SubResource("StyleBoxFlat_jviy6")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_sykos")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ag7bs")
 text = "2D/3D"
 script = ExtResource("3_jviy6")
 metadata/_edit_use_anchors_ = true
@@ -190,6 +144,10 @@ metadata/_edit_use_anchors_ = true
 [node name="undo" type="Button" parent="leftBar" unique_id=381374895]
 layout_mode = 1
 anchors_preset = -1
+anchor_left = 0.224
+anchor_top = 0.34507042
+anchor_right = 0.224
+anchor_bottom = 0.34507042
 offset_left = -2.0
 offset_top = 453.0
 offset_right = 104.5
@@ -205,8 +163,10 @@ metadata/_edit_use_anchors_ = true
 [node name="redo" type="Button" parent="leftBar" unique_id=1175356954]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.0019138829
-anchor_right = -0.0019138464
+anchor_left = 0.22208612
+anchor_top = 0.34507042
+anchor_right = 0.22208618
+anchor_bottom = 0.34507042
 offset_left = 104.4
 offset_top = 453.0
 offset_right = 209.4
@@ -222,3 +182,14 @@ metadata/_edit_use_anchors_ = true
 
 [node name="CameraControlUi" parent="." unique_id=64653746 instance=ExtResource("3_8lirb")]
 layout_mode = 1
+anchor_left = 0.97444445
+anchor_top = 0.92083335
+anchor_right = 0.97444445
+anchor_bottom = 0.92083335
+
+[node name="FurniturePanels" parent="." unique_id=757081274 instance=ExtResource("7_pfenr")]
+z_index = 10
+layout_mode = 1
+mouse_filter = 2
+
+[connection signal="pressed" from="leftBar/furnish" to="leftBar/furnish" method="_on_pressed"]
