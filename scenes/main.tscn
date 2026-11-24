@@ -3,9 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://clpfsusflrl37" path="res://scenes/room1.tscn" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://bxwyxpubw8kdd" path="res://scenes/mainUI.tscn" id="2_jyhfs"]
 [ext_resource type="Theme" uid="uid://bb8671whacxvp" path="res://assets/baseTheme.tres" id="3_jyhfs"]
-[ext_resource type="Script" uid="uid://lkj0gx1f2ebi" path="res://scripts/camera_3d.gd" id="3_tbgi4"]
+[ext_resource type="Script" uid="uid://lkj0gx1f2ebi" path="res://scripts/free_camera.gd" id="3_tbgi4"]
 [ext_resource type="Environment" uid="uid://dodb15h6v0udy" path="res://assets/globalEnvironment.tres" id="5_tbgi4"]
 [ext_resource type="Material" uid="uid://c8kaxq0gakere" path="res://assets/infiniteGridMaterial.tres" id="6_tefeu"]
+[ext_resource type="Script" uid="uid://ci27qunxgarnn" path="res://locked_camera.gd" id="7_o6xl0"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_tbgi4"]
 size = Vector2(3, 3)
@@ -41,7 +42,7 @@ script = ExtResource("3_tbgi4")
 camNotsif = NodePath("../CanvasLayer/CamNotif")
 metadata/_edit_group_ = true
 
-[node name="Camera3D" type="Camera3D" parent="FreeCamera" unique_id=1759224352]
+[node name="Camera3D" type="Camera3D" parent="FreeCamera" unique_id=1759224352 groups=["Cam_1", "cam_1"]]
 transform = Transform3D(-0.24564575, 0, 0.9693597, 0, 1, 0, -0.9693597, 0, -0.24564575, 0, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="FreeCamera/Camera3D" unique_id=1393025259]
@@ -62,3 +63,17 @@ visible = false
 [node name="Lights3" type="DirectionalLight3D" parent="Lights" unique_id=448733899]
 transform = Transform3D(-0.5499413, 0.029379815, 0.83468634, 0.8351225, 0.03322529, 0.5490593, -0.011601404, 0.9990159, -0.04280772, 11.17, 10, -0.456)
 visible = false
+
+[node name="FreeCamera2" type="CharacterBody3D" parent="." unique_id=2146295567 node_paths=PackedStringArray("camNotsif")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.883449, 3.8755722, 0)
+script = ExtResource("7_o6xl0")
+camNotsif = NodePath("../CanvasLayer/CamNotif")
+metadata/_edit_group_ = true
+
+[node name="Camera3D2" type="Camera3D" parent="FreeCamera2" unique_id=665856777 groups=["cam_2"]]
+transform = Transform3D(-1, 8.742278e-08, 3.821371e-15, 0, -4.371139e-08, 1, 8.742278e-08, 1, 4.371139e-08, -10.883449, 8.124428, 0)
+size = 13.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="FreeCamera2/Camera3D2" unique_id=1410696874]
+material_override = ExtResource("6_tefeu")
+mesh = SubResource("QuadMesh_tbgi4")

@@ -20,8 +20,11 @@ func _ready():
 
 
 func _input(event):
+	if (!camera.current):
+		return
+	
 	# Handle mouse movement
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and camera.current:
 		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED || rotateCam:
 			rotation_y -= event.relative.x * mouse_sensitivity
 			rotation_x -= event.relative.y * mouse_sensitivity
@@ -46,6 +49,16 @@ func _input(event):
 
 
 func _physics_process(delta):
+	if (!camera.current):
+		return
+		
+	if (rotateCam):
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		camNotsif.visible = true
+	else:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		camNotsif.visible = false
+	
 	var direction = Vector3.ZERO
 
 	if Input.is_action_pressed("rightClick"):

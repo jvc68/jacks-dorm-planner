@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dbvo5aysfeluq" path="res://scripts/leftBar.gd" id="1_b3bc3"]
 [ext_resource type="Theme" uid="uid://bb8671whacxvp" path="res://assets/baseTheme.tres" id="2_75u2n"]
 [ext_resource type="PackedScene" uid="uid://8cdygloi8yvw" path="res://scenes/cameraControlUI.tscn" id="3_8lirb"]
+[ext_resource type="Script" uid="uid://b6f5flml7rlp6" path="res://scripts/view_toggle.gd" id="3_jviy6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dj8aq"]
 content_margin_left = 4.0
@@ -183,6 +184,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_jviy6")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_sykos")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ag7bs")
 text = "2D/3D"
+script = ExtResource("3_jviy6")
 metadata/_edit_use_anchors_ = true
 
 [node name="undo" type="Button" parent="leftBar" unique_id=381374895]
